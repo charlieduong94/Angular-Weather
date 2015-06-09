@@ -27,47 +27,112 @@
     
       <div class="btn-group btn-group-justified">
         <div class="btn-group">
-          <button type="button" class="btn btn-danger " ng-class="{'active' : isActive(1)}" ng-click="setTab(1)">3-Hour</button>
+          <button type="button" class="btn btn-danger " ng-class="{'active' : isActive(1)}" ng-click="setTab(1)">Upcoming</button>
         </div>
         <div class="btn-group">
-          <button type="button" class="btn btn-danger" ng-class="{'active' : isActive(2)}" ng-click="setTab(2)">5-Day</button>
+          <button type="button" class="btn btn-danger" ng-class="{'active' : isActive(2)}" ng-click="setTab(2)">Week</button>
         </div>
         <div class="btn-group">
-          <button type="button" class="btn btn-danger" ng-class="{'active' : isActive(3)}" ng-click="setTab(3)">10-Day</button>
+          <button type="button" class="btn btn-danger" ng-class="{'active' : isActive(3)}" ng-click="setTab(3)">Extended</button>
         </div>
       </div>
       
       <div id="forecastContainer">
-        <div class="scrollable" ng-show="isActive(1)" ng-controller="HourlyForecastController as hourly">
+        <div class="scrollable" ng-show="isActive(1)" ng-controller="ForecastController" ng-init="init('Hourly')">
           <ul class="list-group nav">
-            
             <div ng-repeat="item in weatherList" class="panel panel-default weather-panel">
               <div class="panel-body weather-body">
                 <div class="row">
+                  <div class="date col-xs-2">
+                      <h4>
+                        {{item.dt | DateFilter : "day name"}}<br>
+                        {{item.dt | DateFilter : "hour"}}
+                      </h4>
+                        
+                      
+                    </div>
                   <div class="icon col-xs-2">
                    <i class="wi" ng-class="getIcon(item.weather[0].icon)"></i>
                   </div>
-                  <div class=" col-xs-9">
-                    Temperature : {{item.main.temp | WeatherFilter : unit}} <br>{{item.weather[0].description}} <br>
-                    Humidity : {{item.main.humidity}}%
+                  <div class=" col-xs-6 no-padding">
+                    Temperature : {{item.main.temp | WeatherFilter : unit}} <br>
+                    Humidity : {{item.main.humidity}}% <br>
+                    Wind : {{item.wind.speed}} {{item.wind.deg}}  
                   </div>
                 </div>
               </div>
               <div class="panel-footer weather-footer">
-                {{item.dt | DateFilter}}
+                {{item.weather[0].description}}
               </div>
             </li>
+            </div>
           </ul>
-          
         </div>
-        <div class="scrollable" ng-show="isActive(2)">
-          
-          
+          <div class="scrollable" ng-show="isActive(2)" ng-controller="ForecastController" ng-init="init('7-Day')">
+            <ul class="list-group nav">
+              <div ng-repeat="item in weatherList" class="panel panel-default weather-panel">
+                <div class="panel-body weather-body">
+                  <div class="row">
+                    <div class="date col-xs-2">
+                      <h4>
+                        {{item.dt | DateFilter : "day name"}}<br>
+                        {{item.dt | DateFilter : "month"}}<br>
+                        {{item.dt | DateFilter : "day"}}
+                      </h4>
+                    </div>
+                    <div class="icon col-xs-2">
+                     <i class="wi" ng-class="getIcon(item.weather[0].icon)"></i>
+                    </div>
+                    <div class=" col-xs-4 no-padding">
+                      Max : {{item.temp.max | WeatherFilter : unit}} <br>
+                      Min : {{item.temp.min | WeatherFilter : unit}}  <br>
+                      Humidity : {{item.humidity}}%
+                    </div>
+                    <div class=" col-xs-3 no-padding">
+                      Morn : {{item.temp.max | WeatherFilter : unit}} <br>
+                      Eve : {{item.temp.min | WeatherFilter : unit}}  <br>
+                      Night : {{item.temp.night | WeatherFilter : unit}}
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer weather-footer">
+                  {{item.weather[0].description}} 
+                </div>
+              </li>
+              </div>
+            </ul>
+          </div>
         </div>
-        <div class="scrollable" ng-show="isActive(3)">
-          
+          <div class="scrollable" ng-show="isActive(3)" ng-controller="ForecastController" ng-init="init('16-Day')">
+            <ul class="list-group nav">
+              <div ng-repeat="item in weatherList" class="panel panel-default weather-panel">
+                <div class="panel-body weather-body" style="padding-bottom : 5px">
+                  <div class="row">
+                    <div class="col-xs-5" style="padding-right : 0px">
+                      <h4>
+                        {{item.dt | DateFilter : "day name"}} 
+                        {{item.dt | DateFilter : "month"}} 
+                        {{item.dt | DateFilter : "day"}}
+                      </h4>
+                    </div>
+                    <div class=" col-xs-2 icon-small no-padding">
+                     <i class="wi" ng-class="getIcon(item.weather[0].icon)"></i>
+                    </div>
+                    <div class=" col-xs-4 no-padding">
+                      Max : {{item.temp.max | WeatherFilter : unit}} <br>
+                      Min : {{item.temp.min | WeatherFilter : unit}}
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-footer weather-footer">
+                  {{item.weather[0].description}} 
+                </div>
+              </li>
+              </div>
+            </ul>
+          </div>
         </div>
+        
       </div>
     </div>
-  </div>
   </div>

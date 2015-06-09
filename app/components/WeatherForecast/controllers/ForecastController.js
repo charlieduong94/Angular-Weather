@@ -1,4 +1,4 @@
-angular.module('Forecast').controller("HourlyForecastController", function($scope, WeatherFactory, GeolocationFactory, UnitToggleService, IconMappingService){
+angular.module('Forecast').controller("ForecastController", function($scope, WeatherFactory, GeolocationFactory, UnitToggleService, IconMappingService){
   $scope.unit = UnitToggleService.unit;
   $scope.getIcon = IconMappingService;
   $scope.$watch(function () { return UnitToggleService.unit; }, function (newVal, oldVal) {
@@ -6,10 +6,12 @@ angular.module('Forecast').controller("HourlyForecastController", function($scop
           $scope.unit = UnitToggleService.unit;
       }
   });
-  
+  $scope.type = "Hourly";
+  $scope.init = function(type){
+    $scope.type = type;
+  };
   GeolocationFactory.getLocation().then(function(data){
-    WeatherFactory.getWeather("Hourly", data.lat, data.lon).then(function(data){
-      console.log(data);
+    WeatherFactory.getWeather($scope.type, data.lat, data.lon).then(function(data){
       $scope.weatherList = data.data.list;
     });
   });

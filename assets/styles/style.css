@@ -1,5 +1,4 @@
 /* CSS file placeholder. */
-
 li {
   margin: 5px;
 }
@@ -20,16 +19,22 @@ li {
 }
 #mainTemp {
   font-size : 55px;
-  margin-top : 5px;
+  margin-top : 0px;
   margin-bottom : 5px;
 }
 #mainIcon {
     font-size: 660%;
-    margin : -15px;
+    margin : -8px;
 }
 .icon {
     font-size: 300%;
     margin-right : 10px;
+    padding : 0px;
+}
+.icon-small{
+  font-size : 200%;
+  margin-right : 10px;
+  padding : 5px;
 }
 h2 {
   font-size : 23px;
@@ -38,6 +43,7 @@ h2 {
 }
 #location {
   font-size : 30px;
+  margin-bottom : 0px;
 }
 #toggleButton {
   white-space : normal;
@@ -53,6 +59,14 @@ h2 {
 #mainImage {
   height: 80px;
   width: auto;
+}
+.date {
+  text-align : center;
+  margin : 0px;
+  padding : 0px;
+}
+.date > h4 {
+  margin-top : 0px;
 }
 .ng-hide {
   /* this is just another form of hiding an element */
@@ -76,4 +90,14 @@ h2 {
   padding : 0px;
   padding-left : 10px;
   background-color : #FF6600;
+}
+
+
+.vert-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.no-padding {
+  padding : 0px;
 }
