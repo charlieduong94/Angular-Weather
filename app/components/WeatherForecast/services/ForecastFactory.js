@@ -6,7 +6,7 @@ angular.module('Forecast').factory("WeatherFactory", function($http){
       switch(service){
         case "Hourly":
           url = 'http://api.openweathermap.org/data/2.5/forecast?lat='+ lat +'&lon=' + lon 
-                + "&mode=json";
+                + "&cnt=20&mode=json";
           break;
         case "7-Day":
           url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='+ lat +'&lon=' + lon 

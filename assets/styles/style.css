@@ -33,7 +33,7 @@ li {
 }
 .icon-small{
   font-size : 200%;
-  margin-right : 10px;
+  margin-right : 25px;
   padding : 5px;
 }
 h2 {
@@ -45,6 +45,7 @@ h2 {
   font-size : 30px;
   margin-bottom : 0px;
 }
+
 #toggleButton {
   white-space : normal;
 }

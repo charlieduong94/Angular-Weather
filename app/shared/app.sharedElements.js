@@ -1,1 +1,1 @@
-angular.module("SharedElements", []);
+angular.module("SharedElements", ['ui.bootstrap']);

@@ -1,6 +1,7 @@
 html {
+  /*must be set*/
   width : 700px;
-  height : 00px;
+  height : 400px;
 }
 body {
   padding-top : 10px;

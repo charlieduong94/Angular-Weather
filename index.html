@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="/assets/lib/weather-icons.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/lib/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/styles/modal-style.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/window-style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <script src="/assets/bower_components/angular/angular.min.js"></script>
@@ -14,14 +15,59 @@
 
 <body>
   <div class="container" ng-app="WeatherApp">
-    <div ng-include="'/app/components/WeatherForecast/views/forecast.html'"></div>
+    <div ng-controller="AvailabilityController">
+      <div id="not-connected" ng-controller="ModalController"> 
+        <!-- following only shows up if cannot get location and/or connection AND loading is done -->
+        <script type="text/ng-template" id="myModalContent.html">
+          <div class="modal-header">
+              <h3 class="modal-title">Something seems to be wrong...</h3>
+          </div>
+          <div class="modal-body">
+              <h3>Make sure you are connected to the internet and have location services on.</h>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary btn-md" ng-click="exit()">Okay, lemme go fix that</button>
+          </div>
+        </script>
+      </div>
+      <div ng-show="!isLoading() && isLocated() && isConnected()" ng-controller="TabController">
+        <div ng-show="isActive(1)" ng-include="'/app/components/WeatherForecast/views/forecast.html'"></div>
+        <br>
+        <div class="row">
+          
+          <div class="col-xs-8">
+            <div class="btn-group btn-group-justified ">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary " ng-class="{'active' : isActive(1)}" ng-click="setTab(1)">Forecast</button></button>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary" ng-class="{'active' : isActive(2)}" ng-click="setTab(2)">Map</button>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary" ng-class="{'active' : isActive(3)}" ng-click="setTab(3)">Search</button>
+              </div>
+            </div>
+          </div>
+          <div ng-controller="UnitToggleController" class="col-xs-4">
+            <button id="toggleButton" class="btn btn-success btn-block"ng-click="toggleUnit()">{{toggleButtonText}}</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
     <!-- Shared resources -->
     <script src="/app/shared/app.sharedElements.js"></script>
+    <script src="/app/shared/controllers/ErrorModalController.js"></script>
+    <script src="/app/shared/controllers/ModalController.js"></script>
+    <script src="/app/shared/services/AvailabilityService.js"></script>
+    <script src="/app/shared/controllers/AvailabilityController.js"></script>
     <script src="/app/shared/controllers/TabController.js"></script>
     <script src="/app/shared/filters/DateFilter.js"></script>
     <script src="/app/shared/filters/WeatherFilter.js"></script>
     <script src="/app/shared/services/IconMappingService.js"></script>
     <script src="/app/shared/services/UnitToggleService.js"></script>
+    <script src="/app/shared/controllers/UnitToggleController.js"></script>
     <!-- Weather Forecasting -->
     <script src="/app/components/WeatherForecast/app.forecast.js"></script>
     <script src="/app/components/WeatherForecast/controllers/CurrentWeatherController.js"></script>
