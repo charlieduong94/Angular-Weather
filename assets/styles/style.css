@@ -5,6 +5,9 @@ li {
 .nav {
   color : black;
 }
+.full-height-container{
+  height : 100%;
+}
 #leftDiv {
   text-align : center;
 }
@@ -93,6 +96,18 @@ h2 {
   background-color : #FF6600;
 }
 
+.loading-container {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.loading {
+  text-align : center;
+  position: relative;
+  top: 50%;
+  
+  transform: translateY(-50%);
+}
 
 .vert-align {
   position: relative;

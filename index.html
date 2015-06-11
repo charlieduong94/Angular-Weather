@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="/assets/lib/weather-icons.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/lib/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/styles/animations.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/modal-style.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/window-style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -14,8 +15,8 @@
 </head>
 
 <body>
-  <div class="container" ng-app="WeatherApp">
-    <div ng-controller="AvailabilityController">
+  <div class="full-height-container" ng-app="WeatherApp">
+    <div class="full-height-container" ng-controller="AvailabilityController">
       <div id="not-connected" ng-controller="ModalController"> 
         <!-- following only shows up if cannot get location and/or connection AND loading is done -->
         <script type="text/ng-template" id="myModalContent.html">
@@ -30,6 +31,16 @@
           </div>
         </script>
       </div>
+      <!-- loading screen, just a simple animation -->
+      <div class="loading-container full-height-container" ng-show="isLoading()">
+        <div class="icon loading">
+          <!-- use ng-class to handle the addition of animation so that there is no cpu being used up
+               in the background while the actual content is shown -->
+          <i class="wi wi-day-sunny" ng-class="{rotate : isLoading()}"></i>
+          <h4>Loading</h4>
+        </div>
+      </div>
+      <!-- actual weather screen will show up if a location was found, a connection was confirmed and the first request is done-->
       <div ng-show="!isLoading() && isLocated() && isConnected()" ng-controller="TabController">
         <div ng-show="isActive(1)" ng-include="'/app/components/WeatherForecast/views/forecast.html'"></div>
         <br>

@@ -6,7 +6,7 @@
      <!-- left div for temp and details -->
       <div id="mainInfo">
         <h2 id="location"> <span ng-bind="location"></span></h2>
-        <h1 id="mainTemp"> <span ng-bind="main.temp  | WeatherFilter : unit"></span>  </h1>
+        <h1 id="mainTemp"> <span ng-bind="main.temp  | WeatherFilter : unitToggle.unit"></span>  </h1>
          <div id="mainIcon">
            <i class="wi" ng-class="getIcon(weather.icon)"></i>
          </div>

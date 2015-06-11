@@ -1,11 +1,12 @@
 angular.module('Forecast').controller("CurrentWeatherController", 
             function($scope, WeatherFactory, GeolocationFactory, UnitToggleService, IconMappingService, AvailabilityService){
-  $scope.unit = UnitToggleService.unit;
+  $scope.unitToggle = UnitToggleService;
   
   $scope.toggleButtonText = "Switch to Celsius";
   var makeCurrentWeatherPromise = function(lat, lon){
     WeatherFactory.getWeather("currentWeather", lat, lon).then(function(data){  // uses then function allow the code to run after get weather completes
       // weather
+      console.log("loading done, success");
       AvailabilityService.loading = false; //loading is done
       $scope.main = data.data.main;
       $scope.wind = data.data.wind;
@@ -17,18 +18,13 @@ angular.module('Forecast').controller("CurrentWeatherController",
     
   };
   $scope.getIcon = IconMappingService;
-  // constantly watches to see if unit has changed, if it has, update scope's unit
-  $scope.$watch(function () { return UnitToggleService.unit; }, function (newVal, oldVal) {
-      if (typeof newVal !== 'undefined') {
-          $scope.unit = UnitToggleService.unit;
-      }
-  });
   GeolocationFactory.getLocation().then(function(data){
     if(data.serviceEnabled ){
       AvailabilityService.located = true;
       makeCurrentWeatherPromise(data.lat, data.lon);
     }
     else{
+      console.log("loading done, failed");
       AvailabilityService.located = false;
       AvailabilityService.loading = false;
     }

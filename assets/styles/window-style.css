@@ -1,11 +1,11 @@
 html {
   /*must be set*/
   width : 700px;
-  height : 400px;
+  height : 460px;
 }
 body {
-  padding-top : 10px;
-  padding-bottom : 10px;
+  height :100%;
+  padding : 20px;
   color : white;
   background-color : #333333;
 }
