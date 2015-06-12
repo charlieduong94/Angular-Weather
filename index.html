@@ -44,6 +44,7 @@
       <!-- actual weather screen will show up if a location was found, a connection was confirmed and the first request is done-->
       <div class="main-app" ng-show="!isLoading() && isLocated() && isConnected()" ng-controller="TabController">
         <div ng-show="isActive(1)" ng-include="'/app/components/WeatherForecast/views/forecast.html'"></div>
+        <div ng-show="isActive(2)" ng-include="'/app/components/Map/views/map.html'"></div>
         <br>
         <div class="row">
           

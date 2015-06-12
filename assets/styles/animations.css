@@ -41,20 +41,28 @@
   For some strange reason, when main portion of the app is shown, the ng-hide-remove doesn't work,
   the tab controller within the app works fine though, so the main app has it's own dedicated animation
 */
+
+
 .main-app{
-  -webkit-animation: fadeInSlideDown 0.75s ease-out;
+  -webkit-animation: scaleOut 1.1s ease-out;
 }
 .main-app.ng-hide{
   opacity : 0;
 }
 .fade-down-show.ng-hide-remove{
   opacity : 0;
-  -webkit-animation: fadeInSlideDown 0.5s ease-out;
+  -webkit-animation: fadeInSlideDown 0.75s ease-out;
 }
 .fade-down-show.ng-hide-remove-active {
   opacity : 1;
+  top: -9999px;
+  left: -9999px;
 }
-
+/* overides the animation upon removal, makes it so that the element can immediately removed,
+  without this, the element being removed won't get removed it's original animation is complete */
+.fade-down-show.ng-hide-add{
+  -webkit-animation: 0s linear all;
+}
 @-webkit-keyframes fadeInSlideDown{
   0% {
     opacity : 0;
@@ -66,6 +74,17 @@
     -webkit-transform : translateY(0px);
   }
 }
+@-webkit-keyframes fadeOutSlideDown{
+  0% {
+    opacity : 1;
+    -webkit-transform : translateY(0px);
+  }
+
+  100% {
+    opacity : 0;
+    -webkit-transform : translateY(10px);
+  }
+}
 @-webkit-keyframes mainAppfadeIn{
   0% {
     opacity : 0;
@@ -75,5 +94,15 @@
   100% {
     opacity : 1;
     -webkit-transform : translateY(0px);
+  }
+}
+@-webkit-keyframes scaleOut{
+  0%{
+    opacity : 0;
+    -webkit-transform : scale(0.1,0.1);
+  }
+  100%{
+    opacity : 1;
+    -webkit-transform : scale(1,1);
   }
 }
