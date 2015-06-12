@@ -5,6 +5,8 @@
   animation:spin 4s linear infinite;
 
 }
+
+/* animations */
 @-ms-keyframes spin { 
   0%   {-ms-transform : rotate(0deg);   }
   100% {-ms-transform : rotate(360deg) ;}
@@ -22,5 +24,56 @@
 @keyframes spin { 
   0%   { transform:rotate(0deg);}
   100% { transform:rotate(360deg); } 
+}
+
+/* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
+/* flip in */
+
+/*
+.fade-down-show{
   
+}
+.fade-down-show.ng-hide{
+  opacity : 0;
+}
+*/
+/*
+  For some strange reason, when main portion of the app is shown, the ng-hide-remove doesn't work,
+  the tab controller within the app works fine though, so the main app has it's own dedicated animation
+*/
+.main-app{
+  -webkit-animation: fadeInSlideDown 0.75s ease-out;
+}
+.main-app.ng-hide{
+  opacity : 0;
+}
+.fade-down-show.ng-hide-remove{
+  opacity : 0;
+  -webkit-animation: fadeInSlideDown 0.5s ease-out;
+}
+.fade-down-show.ng-hide-remove-active {
+  opacity : 1;
+}
+
+@-webkit-keyframes fadeInSlideDown{
+  0% {
+    opacity : 0;
+    -webkit-transform : translateY(-10px);
+  }
+
+  100% {
+    opacity : 1;
+    -webkit-transform : translateY(0px);
+  }
+}
+@-webkit-keyframes mainAppfadeIn{
+  0% {
+    opacity : 0;
+    -webkit-transform : translateY(-50px);
+  }
+
+  100% {
+    opacity : 1;
+    -webkit-transform : translateY(0px);
+  }
 }

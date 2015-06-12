@@ -1,5 +1,5 @@
 
-angular.module("WeatherApp", ["ui.bootstrap", "SharedElements", "Forecast"]).config( [
+angular.module("WeatherApp", ["ui.bootstrap", "SharedElements", "Forecast", "ngAnimate"]).config( [
     '$compileProvider',
     function( $compileProvider )
     {   

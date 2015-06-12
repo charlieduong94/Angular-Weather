@@ -72,7 +72,7 @@ h2 {
 .date > h4 {
   margin-top : 0px;
 }
-.ng-hide {
+.ng-hide:not(.ng-hide-animate){
   /* this is just another form of hiding an element */
   display: block!important;
   position: absolute;

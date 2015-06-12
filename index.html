@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="/assets/styles/window-style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <script src="/assets/bower_components/angular/angular.min.js"></script>
+  <script src="/assets/bower_components/angular/angular-animate.min.js"></script>
   <script src="/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
   
 </head>
@@ -17,7 +18,7 @@
 <body>
   <div class="full-height-container" ng-app="WeatherApp">
     <div class="full-height-container" ng-controller="AvailabilityController">
-      <div id="not-connected" ng-controller="ModalController"> 
+      <div id="not-connected"> 
         <!-- following only shows up if cannot get location and/or connection AND loading is done -->
         <script type="text/ng-template" id="myModalContent.html">
           <div class="modal-header">
@@ -41,7 +42,7 @@
         </div>
       </div>
       <!-- actual weather screen will show up if a location was found, a connection was confirmed and the first request is done-->
-      <div ng-show="!isLoading() && isLocated() && isConnected()" ng-controller="TabController">
+      <div class="main-app" ng-show="!isLoading() && isLocated() && isConnected()" ng-controller="TabController">
         <div ng-show="isActive(1)" ng-include="'/app/components/WeatherForecast/views/forecast.html'"></div>
         <br>
         <div class="row">
@@ -69,8 +70,8 @@
     
     <!-- Shared resources -->
     <script src="/app/shared/app.sharedElements.js"></script>
+    <script src="/app/shared/services/TimeoutService.js"></script>
     <script src="/app/shared/controllers/ErrorModalController.js"></script>
-    <script src="/app/shared/controllers/ModalController.js"></script>
     <script src="/app/shared/services/AvailabilityService.js"></script>
     <script src="/app/shared/controllers/AvailabilityController.js"></script>
     <script src="/app/shared/controllers/TabController.js"></script>
