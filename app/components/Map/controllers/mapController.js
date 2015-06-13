@@ -14,7 +14,7 @@ angular.module("WeatherMap").controller("MapController", function($scope, Geoloc
       ],
       view: new ol.View({
         center: ol.proj.transform([data.lon,data.lat], 'EPSG:4326', 'EPSG:3857'),
-        zoom: 8
+        zoom: 5
       })
     });
     map.addControl(new ol.control.FullScreen({label : "FullScreen", labelActive : true}));
