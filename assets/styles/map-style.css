@@ -1,4 +1,4 @@
-#map-canvas {
-  width : 400px;
-  height : 400px;
+.angular-google-map-container {
+  width : 500px;
+  height : 373px; /* unfortunately needed to be hard coded */
 }

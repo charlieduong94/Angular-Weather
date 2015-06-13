@@ -22,5 +22,7 @@
   "background": {
     "scripts": ["/assets/scripts/background.js"]
   },
-  "web_accessible_resources": ["assets/WeatherIcons/10n.png"]
+  "web_accessible_resources": ["assets/WeatherIcons/10n.png"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://maps.googleapis.com https://mts0.googleapis.com https://maps.gstatic.com; object-src 'self'"
+  
 }

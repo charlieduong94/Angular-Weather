@@ -6,19 +6,21 @@
   <link rel="stylesheet" type="text/css" href="/assets/lib/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/style.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/animations.css">
+  <link rel="stylesheet" type="text/css" href="/assets/styles/map-style.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/modal-style.css">
   <link rel="stylesheet" type="text/css" href="/assets/styles/window-style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <script src="/assets/bower_components/angular/angular.min.js"></script>
   <script src="/assets/bower_components/angular/angular-animate.min.js"></script>
   <script src="/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  
+  <script src="/assets/bower_components/lodash/lodash.min.js"></script>
+  <script src="/assets/bower_components/angular-google-maps/dist/angular-google-maps.min.js" ></script>
 </head>
 
 <body>
   <div class="full-height-container" ng-app="WeatherApp">
     <div class="full-height-container" ng-controller="AvailabilityController">
-      <div id="not-connected"> 
+      <div id="not-connected">
         <!-- following only shows up if cannot get location and/or connection AND loading is done -->
         <script type="text/ng-template" id="myModalContent.html">
           <div class="modal-header">
@@ -43,8 +45,8 @@
       </div>
       <!-- actual weather screen will show up if a location was found, a connection was confirmed and the first request is done-->
       <div class="main-app" ng-show="!isLoading() && isLocated() && isConnected()" ng-controller="TabController">
-        <div ng-show="isActive(1)" ng-include="'/app/components/WeatherForecast/views/forecast.html'"></div>
-        <div ng-show="isActive(2)" ng-include="'/app/components/Map/views/map.html'"></div>
+        <div class="fade-down-show" ng-show="isActive(1)" ng-include="'/app/components/WeatherForecast/views/forecast.html'"></div>
+        <div class="fade-down-show" ng-show="isActive(2)" ng-include="'/app/components/Map/views/map.html'"></div>
         <br>
         <div class="row">
           
@@ -87,7 +89,9 @@
     <script src="/app/components/WeatherForecast/controllers/ForecastController.js"></script>
     <script src="/app/components/WeatherForecast/services/ForecastFactory.js"></script>
     <script src="/app/components/WeatherForecast/services/GeolocationFactory.js"></script>
-    
+    <!-- Weather Map -->
+    <script src="/app/components/Map/app.weatherMap.js"></script>
+    <script src="/app/components/Map/controllers/mapController.js"></script>
     <!-- pull everything together -->
     <script src="/app/app.js"></script>
   </div>
