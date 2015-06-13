@@ -2,23 +2,20 @@ angular.module("WeatherMap").controller("MapController", function($scope, Geoloc
   
   var map; 
   // open layer maps
-  GeolocationService.getLocation().then(function(data){
-    
-    map = new ol.Map({
-      target: 'map',
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.MapQuest({layer: 'osm'})
-        }),
-        
-      ],
-      view: new ol.View({
-        center: ol.proj.transform([data.lon,data.lat], 'EPSG:4326', 'EPSG:3857'),
-        zoom: 5
+  var satBaseLayer = new ol.layer.Group({
+    layers : [
+      new ol.layer.Tile({
+        source : new ol.source.MapQuest({layer: 'sat'})
       })
-    });
-    map.addControl(new ol.control.FullScreen({label : "FullScreen", labelActive : true}));
-    
+    ]
+  });
+  
+  var osmBaseLayer = new ol.layer.Group({
+    layers : [
+      new ol.layer.Tile({
+        source : new ol.source.MapQuest({layer : "osm"})    
+      })
+    ]
   });
   var precipitationLayer = new ol.layer.Tile({
     source: new ol.source.XYZ({
@@ -35,8 +32,9 @@ angular.module("WeatherMap").controller("MapController", function($scope, Geoloc
       url : "http://temp.title.openweathermap.org/map/temp/{z}/{x}/{y}.png"
     })
   });
+  
   $scope.layerModel = {
-    precipitation : false,
+    precipitation : true,
     clouds : false,
     temp : false
   };
@@ -57,5 +55,19 @@ angular.module("WeatherMap").controller("MapController", function($scope, Geoloc
     }
   };
   
-  
+  GeolocationService.getLocation().then(function(data){
+    
+    map = new ol.Map({
+      target: 'map',
+      //controls: ol.control.defaults().extend([
+      //  new ol.control.FullScreen()
+      //]),
+      view: new ol.View({
+        center: ol.proj.transform([data.lon,data.lat], 'EPSG:4326', 'EPSG:3857'),
+        zoom: 4
+      })
+    });
+    map.setLayerGroup(osmBaseLayer);
+    map.addLayer(precipitationLayer);
+  });
 });
