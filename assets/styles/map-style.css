@@ -1,4 +1,4 @@
-.angular-google-map-container {
+.map{
   width : 500px;
   height : 373px; /* unfortunately needed to be hard coded */
 }

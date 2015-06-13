@@ -1,5 +1,5 @@
 angular.module('Forecast').controller("CurrentWeatherController", 
-            function($scope, WeatherFactory, GeolocationFactory, UnitToggleService,
+            function($scope, WeatherFactory, GeolocationService, UnitToggleService,
                       IconMappingService, AvailabilityService, TimeoutService){
   var makeCurrentWeatherPromise = function(lat, lon){
     WeatherFactory.getWeather("currentWeather", lat, lon).then(function(data){  // uses then function allow the code to run after get weather completes
@@ -19,11 +19,12 @@ angular.module('Forecast').controller("CurrentWeatherController",
     });
     
   };
+  console.log(document.domain);
   $scope.unitToggle = UnitToggleService;
   $scope.toggleButtonText = "Switch to Celsius";
   
   $scope.getIcon = IconMappingService;
-  GeolocationFactory.getLocation().then(function(data){
+  GeolocationService.getLocation().then(function(data){
     if(data.serviceEnabled ){
       AvailabilityService.located = true;
       makeCurrentWeatherPromise(data.lat, data.lon);

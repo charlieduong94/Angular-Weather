@@ -1,3 +1,12 @@
 <div ng-controller="MapController">
+  <!--
   <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
+  -->
+  <div class="row">
+    <div id="map" class="map col-xs-9"></div>
+    <div class="btn-group-vertical col-xs-3">
+        <label class="btn btn-primary" ng-model="layerModel.precipitation" ng-click="switchLayer('precipitation')"btn-checkbox>Precipitation</label>
+    </div>
+  </div>
+  
 </div>

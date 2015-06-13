@@ -12,7 +12,8 @@
   },
   "permissions" : [
     "geolocation",
-    "http://openweathermap.org/img/w/"
+    "http://openweathermap.org/img/w/",
+    "http://openweathermap.org/data/2.5/box/city"
   ],
   
   "browser_action" : {
@@ -23,6 +24,6 @@
     "scripts": ["/assets/scripts/background.js"]
   },
   "web_accessible_resources": ["assets/WeatherIcons/10n.png"],
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://maps.googleapis.com https://mts0.googleapis.com https://maps.gstatic.com; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://api.openweathermap.org/; object-src 'self';"
   
 }

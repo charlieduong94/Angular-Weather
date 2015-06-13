@@ -1,7 +1,7 @@
 // returns an object containing information about the current location 
-angular.module('Forecast').factory("GeolocationFactory", function($q){
-  return {
-    getLocation : function(){
+angular.module('Forecast').service("GeolocationService", function($q){
+    var service = this;
+    service.getLocation = function(){
       var deferred = $q.defer();
       if(navigator.geolocation){
         var lat, lon;
@@ -15,6 +15,6 @@ angular.module('Forecast').factory("GeolocationFactory", function($q){
         deferred.reject({serviceEnabled : false});
       }
       return deferred.promise;
-    }
-  };
+    };
+
 });

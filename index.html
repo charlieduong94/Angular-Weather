@@ -2,19 +2,20 @@
 <html ng-csp>
 <head>
   <title>MyWeatherApp</title>
-  <link rel="stylesheet" type="text/css" href="/assets/lib/weather-icons.min.css">
-  <link rel="stylesheet" type="text/css" href="/assets/lib/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/assets/styles/style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/styles/animations.css">
-  <link rel="stylesheet" type="text/css" href="/assets/styles/map-style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/styles/modal-style.css">
-  <link rel="stylesheet" type="text/css" href="/assets/styles/window-style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/lib/weather-icons.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/lib/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/styles/style.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/styles/animations.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/styles/map-style.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/styles/modal-style.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/styles/window-style.css"/>
+  <link rel="stylesheet" type="text/css" href="/assets/lib/ol.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="/assets/bower_components/jquery/dist/jquery.js"></script>
   <script src="/assets/bower_components/angular/angular.min.js"></script>
   <script src="/assets/bower_components/angular/angular-animate.min.js"></script>
   <script src="/assets/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script src="/assets/bower_components/lodash/lodash.min.js"></script>
-  <script src="/assets/bower_components/angular-google-maps/dist/angular-google-maps.min.js" ></script>
+  <script src="/assets/lib/ol.js"></script>
 </head>
 
 <body>
@@ -88,7 +89,7 @@
     <script src="/app/components/WeatherForecast/controllers/CurrentWeatherController.js"></script>
     <script src="/app/components/WeatherForecast/controllers/ForecastController.js"></script>
     <script src="/app/components/WeatherForecast/services/ForecastFactory.js"></script>
-    <script src="/app/components/WeatherForecast/services/GeolocationFactory.js"></script>
+    <script src="/app/shared/services/GeolocationService.js"></script>
     <!-- Weather Map -->
     <script src="/app/components/Map/app.weatherMap.js"></script>
     <script src="/app/components/Map/controllers/mapController.js"></script>

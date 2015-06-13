@@ -1,4 +1,4 @@
-angular.module('Forecast').controller("ForecastController", function($scope, WeatherFactory, GeolocationFactory, UnitToggleService, IconMappingService){
+angular.module('Forecast').controller("ForecastController", function($scope, WeatherFactory, GeolocationService, UnitToggleService, IconMappingService){
   $scope.unit = UnitToggleService.unit;
   $scope.getIcon = IconMappingService;
   $scope.$watch(function () { return UnitToggleService.unit; }, function (newVal, oldVal) {
@@ -10,7 +10,7 @@ angular.module('Forecast').controller("ForecastController", function($scope, Wea
   $scope.init = function(type){
     $scope.type = type;
   };
-  GeolocationFactory.getLocation().then(function(data){
+  GeolocationService.getLocation().then(function(data){
     WeatherFactory.getWeather($scope.type, data.lat, data.lon).then(function(data){
       $scope.weatherList = data.data.list;
     });
