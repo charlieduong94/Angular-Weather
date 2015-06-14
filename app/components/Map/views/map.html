@@ -4,8 +4,20 @@
   -->
   <div class="row">
     <div id="map" class="map col-xs-9"></div>
-    <div class="btn-group-vertical col-xs-3">
-        <label class="btn btn-primary" ng-model="layerModel.precipitation" ng-click="switchLayer('precipitation')"btn-checkbox>Precipitation</label>
+    <div id="layers-panel" class="col-xs-3">
+      <h4>Map Style</h4>
+      <div class="btn-group-vertical ">
+          <label class="btn btn-primary" ng-model="radioMapModel" ng-click="switchMap('osm')" btn-radio="'Open Street Maps'">Open Street Maps</label>
+          <label class="btn btn-primary" ng-model="radioMapModel" ng-click="switchMap('sat')" btn-radio="'Satelite'">Satelite</label>
+          <label class="btn btn-primary" ng-model="radioMapModel" ng-click="switchMap('hyb')" btn-radio="'Hybrid'">Hybrid</label>
+      </div>
+      <h4>Layers</h4>
+      <div class="btn-group-vertical ">
+          <label class="btn btn-primary" ng-model="layerModel.temp" ng-click="switchLayer('temp')" btn-checkbox>Temperature</label>
+          <label class="btn btn-primary" ng-model="layerModel.precipitation" ng-click="switchLayer('precipitation')" btn-checkbox>Precipitation</label>
+          <label class="btn btn-primary" ng-model="layerModel.clouds" ng-click="switchLayer('clouds')" btn-checkbox>Clouds</label>
+          <label class="btn btn-primary" ng-model="layerModel.pressure" ng-click="switchLayer('pressure')" btn-checkbox>Pressure</label>
+      </div>
     </div>
   </div>
   

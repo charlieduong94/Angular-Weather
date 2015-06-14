@@ -1,20 +1,21 @@
 <div class="row">
-  <div  ng-controller="CurrentWeatherController as weather">
+  <div ng-controller="ForecastController">
    <div id="leftDiv" class="col-xs-5">
     
     <!-- ng-bind will prevent the expression from showing for a split second before data loads-->
      <!-- left div for temp and details -->
       <div id="mainInfo">
-        <h2 id="location"> <span ng-bind="location"></span></h2>
-        <h1 id="mainTemp"> <span ng-bind="main.temp  | WeatherFilter : unitToggle.unit"></span>  </h1>
-         <div id="mainIcon">
-           <i class="wi" ng-class="getIcon(weather.icon)"></i>
-         </div>
+        <h2 id="summ"> <span>Weather</span></h2>
+        <h1 id="mainTemp"> <span ng-bind="currently.temperature"></span>  </h1>
+         <canvas id="mainIcon" width="120" height="120">
+           
+         </canvas>
          
-        <h2> <span ng-bind="weather.description"></span> </h2>
+        <h2> <span ng-bind="currently.summary"></span> </h2>
       </div>
-      <h4> Humidity : <span ng-bind="main.humidity"></span>% </h4>
-      <h4> Wind : <span ng-bind="wind.speed"></span> m/s at <span ng-bind="wind.deg"></span>&deg; </h4>
+      <h4> Chance of Precipitation : <span ng-bind="currently.precipProbability * 100"></span>%</h4> 
+      <h4> Humidity : <span ng-bind="currently.humidity * 100"></span>% </h4>
+      <h4> Wind : <span ng-bind="currently.windSpeed"></span> m/s at <span ng-bind="currently.windBearing"></span>&deg; </h4>
       
     </div>
 
@@ -38,54 +39,54 @@
       </div>
       
       <div id="forecastContainer">
-      <div class="scrollable fade-down-show" ng-show="isActive(1)" ng-controller="ForecastController" ng-init="init('Hourly')">
+      <div class="scrollable fade-down-show" ng-show="isActive(1)">
           <ul class="list-group nav">
-            <div ng-repeat="item in weatherList" class="panel panel-default weather-panel">
+            <div ng-repeat="item in hourly.data" class="panel panel-default weather-panel">
               <div class="panel-body weather-body">
                 <div class="row">
                   <div class="date col-xs-2">
                       <h4>
-                        {{item.dt | DateFilter : "day name"}}<br>
-                        {{item.dt | DateFilter : "day"}} <br>
-                        {{item.dt | DateFilter : "hour"}}
+                        {{item.time | DateFilter : "day name"}}<br>
+                        {{item.time | DateFilter : "day"}} <br>
+                        {{item.time | DateFilter : "hour"}}
                       </h4>
                         
                       
                     </div>
                   <div class="icon col-xs-2">
-                   <i class="wi" ng-class="getIcon(item.weather[0].icon)"></i>
+                   <canvas id="hourlySkycon{{$index}}"  width="60" height="60"></canvas>
                   </div>
                   <div class=" col-xs-6 no-padding">
-                    Temperature : {{item.main.temp | WeatherFilter : unit}} <br>
-                    Humidity : {{item.main.humidity}}% <br>
-                    Wind : {{item.wind.speed}} {{item.wind.deg}}  
+                    
+                    Temperature : {{item.temperature}}<br>
+                    Humidity : {{item.humidity * 100}}% <br>
+                    Chance of Precip. : {{item.precipProbability * 100}}  
                   </div>
                 </div>
               </div>
               <div class="panel-footer weather-footer">
-                {{item.weather[0].description}}
+                {{item.summary}}
               </div>
             </div>
           </ul>
         </div>
-          <div class="scrollable fade-down-show" ng-show="isActive(2)" ng-controller="ForecastController" ng-init="init('7-Day')">
+          <div class="scrollable fade-down-show" ng-show="isActive(2)">
             <ul class="list-group nav">
-              <div ng-repeat="item in weatherList" class="panel panel-default weather-panel">
+              <div ng-repeat="item in daily.data | limitTo : 7" class="panel panel-default weather-panel">
                 <div class="panel-body weather-body">
                   <div class="row">
                     <div class="date col-xs-2">
                       <h4>
-                        {{item.dt | DateFilter : "day name"}}<br>
-                        {{item.dt | DateFilter : "month"}}<br>
-                        {{item.dt | DateFilter : "day"}}
+                        {{item.time | DateFilter : "day name"}}<br>
+                        {{item.time | DateFilter : "day"}} <br>
                       </h4>
                     </div>
                     <div class="icon col-xs-2">
-                     <i class="wi" ng-class="getIcon(item.weather[0].icon)"></i>
+                     <canvas id="dailySkycon{{$index}}"  width="60" height="60"></canvas>
                     </div>
                     <div class=" col-xs-4 no-padding">
-                      Max : {{item.temp.max | WeatherFilter : unit}} <br>
-                      Min : {{item.temp.min | WeatherFilter : unit}}  <br>
+                      Max : {{item.temperatureMax}} <br>
+                      Min : {{item.temperatureMin}}  <br>
                       Humidity : {{item.humidity}}%
                     </div>
                     <div class=" col-xs-3 no-padding">
@@ -96,13 +97,12 @@
                   </div>
                 </div>
                 <div class="panel-footer weather-footer">
-                  {{item.weather[0].description}} 
+                  {{item.summary} 
                 </div>
               </div>
             </ul>
           </div>
-        
-          <div class="scrollable fade-down-show" ng-show="isActive(3)" ng-controller="ForecastController" ng-init="init('16-Day')">
+          <div class="scrollable fade-down-show" ng-show="isActive(3)" >
             <ul class="list-group nav">
               <div ng-repeat="item in weatherList" class="panel panel-default weather-panel">
                 <div class="panel-body weather-body" style=" padding-bottom : 5px">
@@ -129,6 +129,7 @@
                 </div>
               </ul>
             </div>
+          </div>
           </div>
         </div>
         </div>

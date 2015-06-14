@@ -17,7 +17,8 @@ angular.module('Forecast').factory("WeatherFactory", function($http){
                 + "&cnt=16&mode=json";
           break;
         default: // current weather
-          url = 'http://api.openweathermap.org/data/2.5/weather?lat='+ lat +'&lon=' + lon;
+          //url = 'http://api.openweathermap.org/data/2.5/weather?lat='+ lat +'&lon=' + lon;
+          url = "https://api.forecast.io/forecast/6690b4daa6a7f1365438e88938ef8362/"+ lat + "," + lon;
           break;
       }
       return $http.get(url);

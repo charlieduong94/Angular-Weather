@@ -8,7 +8,7 @@ li {
 .full-height-container{
   height : 100%;
 }
-#leftDiv {
+#leftDiv, #layers-panel{
   text-align : center;
 }
 #rightDiv{

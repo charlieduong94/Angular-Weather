@@ -11,9 +11,9 @@
     "128": "assets/icon_128.png"
   },
   "permissions" : [
+    "storage",
     "geolocation",
-    "http://openweathermap.org/img/w/",
-    "http://openweathermap.org/data/2.5/box/city"
+    "https://api.forecast.io/"
   ],
   
   "browser_action" : {
@@ -24,6 +24,6 @@
     "scripts": ["/assets/scripts/background.js"]
   },
   "web_accessible_resources": ["assets/WeatherIcons/10n.png"],
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://api.openweathermap.org/; object-src 'self';"
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://api.openweathermap.org/ ; object-src 'self';"
   
 }
