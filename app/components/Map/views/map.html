@@ -6,10 +6,10 @@
     <div id="map" class="map col-xs-9"></div>
     <div id="layers-panel" class="col-xs-3">
       <h4>Map Style</h4>
-      <div class="btn-group-vertical ">
-          <label class="btn btn-primary" ng-model="radioMapModel" ng-click="switchMap('osm')" btn-radio="'Open Street Maps'">Open Street Maps</label>
-          <label class="btn btn-primary" ng-model="radioMapModel" ng-click="switchMap('sat')" btn-radio="'Satelite'">Satelite</label>
-          <label class="btn btn-primary" ng-model="radioMapModel" ng-click="switchMap('hyb')" btn-radio="'Hybrid'">Hybrid</label>
+      <div class="btn-group-vertical " data-toggle="buttons-checkbox">
+          <label class="btn btn-primary" ng-model="mapRadioModel" ng-click="switchMap('osm')" btn-radio="mapCheckModel.osm">Open Street Maps</label>
+          <label class="btn btn-primary" ng-model="mapRadioModel" ng-click="switchMap('sat')" btn-radio="mapCheckModel.sat">Satelite</label>
+          <label class="btn btn-primary" ng-model="mapRadioModel" ng-click="switchMap('hyb')" btn-radio="mapCheckModel.hyb">Hybrid</label>
       </div>
       <h4>Layers</h4>
       <div class="btn-group-vertical ">
@@ -17,6 +17,23 @@
           <label class="btn btn-primary" ng-model="layerModel.precipitation" ng-click="switchLayer('precipitation')" btn-checkbox>Precipitation</label>
           <label class="btn btn-primary" ng-model="layerModel.clouds" ng-click="switchLayer('clouds')" btn-checkbox>Clouds</label>
           <label class="btn btn-primary" ng-model="layerModel.pressure" ng-click="switchLayer('pressure')" btn-checkbox>Pressure</label>
+          <label class="btn btn-primary" ng-model="layerModel.snow" ng-click="switchLayer('snow')" btn-checkbox>Snow</label>
+      </div>
+      <button id="info-button" class="btn btn-info" ng-click="moreInfo()">More Info</button>
+      <div>
+        <!-- following only shows up if cannot get location and/or connection AND loading is done -->
+        <script type="text/ng-template" id="mapModal.html">
+          <div class="modal-header">
+              <h3 class="modal-title">Hi!</h3>
+          </div>
+          <div class="modal-body">
+              <h4>Layers take a moment to load, so please be patient. <br>Map functionality was made possible with the use of <a href="http://openLayers.org">OpenLayers 3</a>. 
+              <br>Layers are loaded from<a href="http://openweathermap.org"> OpenWeatherMap</a>.<br>Go check them out!</h4>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary btn-md" ng-click="close()">Cool, thanks</button>
+          </div>
+        </script>
       </div>
     </div>
   </div>

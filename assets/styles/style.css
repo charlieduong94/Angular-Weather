@@ -5,8 +5,18 @@ li {
 .nav {
   color : black;
 }
+.center{
+  text-align : center;
+}
+.center-inline{
+  display : inline-block;
+}
 .full-height-container{
   height : 100%;
+}
+.padding-horiz {
+  padding-left : 10px;
+  padding-right : 10px;
 }
 #leftDiv, #layers-panel{
   text-align : center;
@@ -33,6 +43,7 @@ li {
     font-size: 300%;
     margin-right : 10px;
     padding : 0px;
+    height : 60px;
 }
 .icon-small{
   font-size : 200%;
@@ -56,7 +67,7 @@ h2 {
   margin-top : 10px;
 }
 .scrollable{
-  height : 325px;
+  height : 335px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -67,6 +78,8 @@ h2 {
 .date {
   text-align : center;
   margin : 0px;
+  margin-left : 8px;
+  margin-right : 10px;
   padding : 0px;
 }
 .date > h4 {

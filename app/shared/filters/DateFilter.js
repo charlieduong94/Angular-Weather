@@ -14,7 +14,7 @@ angular.module('SharedElements').filter("DateFilter" , function(){
     var year = a.getFullYear();
     var month = months[a.getMonth()];
     var date = a.getDate();
-    var hour = a.getHours();
+    var hour = a.getHours() === 0 ? "12" : a.getHours();
     var period = "am";
     if(hour > 12){
       hour -= 12;
@@ -32,8 +32,11 @@ angular.module('SharedElements').filter("DateFilter" , function(){
       case "day name":
         time = weekday[a.getUTCDay()];
         break;
-      case "hour":
+      case "hour-only":
         time = hour+ " " + period;
+        break;
+      case "hour-minute":
+        time = hour + ':' + min + " " + period;
         break;
       default:
         time =  month + ' ' + date + ', ' + year + ' ' + hour + ':' + min + " " + period;

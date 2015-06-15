@@ -1,4 +1,4 @@
-angular.module("WeatherMap").controller("MapController", function($scope, GeolocationService){
+angular.module("WeatherMap").controller("MapController", function($scope, $modal, GeolocationService){
   
   var map; 
   // open layer maps
@@ -68,6 +68,12 @@ angular.module("WeatherMap").controller("MapController", function($scope, Geoloc
   snowLayer.setVisible(false);
   tempLayer.setVisible(false);
   var baseLayerGroups = {sat : satLayerGroup, osm : osmLayerGroup, hyb : hybLayerGroup};
+  $scope.mapCheckModel = {
+    osm : 'osm',
+    sat : 'sat',
+    hyb : 'hyb'
+  };
+  $scope.mapRadioModel = 'osm';
   $scope.layerModel = {
     precipitation : false,
     clouds : false,
@@ -164,4 +170,14 @@ angular.module("WeatherMap").controller("MapController", function($scope, Geoloc
     map.setLayerGroup(osmLayerGroup);
     //map.addLayer(precipitationLayer);
   });
+  $scope.moreInfo = function(){
+    $modal.open({
+        animation: true,
+        templateUrl: 'mapModal.html',
+        size: 'sm',
+        controller : "MapModalController",
+        backdrop: 'static',
+        keyboard: false
+    });
+  }
 });

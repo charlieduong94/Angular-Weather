@@ -1,4 +1,9 @@
-
+$(document).ready(function(){
+   $('body').on('click', 'a', function(){
+     chrome.tabs.create({url: $(this).attr('href')});
+     return false;
+   });
+});
 angular.module("WeatherApp", ["ui.bootstrap", "SharedElements", "WeatherMap", "Forecast", "ngAnimate"]).config( [
     '$compileProvider',
     function( $compileProvider )
