@@ -106,7 +106,10 @@
                 </div>
               </div>
               <div class="panel-footer weather-footer">
-                {{item.summary}}
+                <marquee behavior="scroll" direction="left">
+                    {{item.summary}} 
+                </marquee>
+                
               </div>
             </div>
           </ul>
@@ -143,11 +146,15 @@
                       Sunrise : {{item.sunriseTime | DateFilter : "hour-minute"}}
                       <br>
                       Sunset : {{item.sunsetTime | DateFilter : "hour-minute"}}
+                      <br>
+                      Precip : {{item.precipProbability | PercentageFilter}}
                     </div>
                   </div>
                 </div>
                 <div class="panel-footer weather-footer">
-                  {{item.summary}}
+                  <marquee behavior="scroll" direction="left">
+                    {{item.summary}} 
+                  </marquee>
                 </div>
               </div>
             </ul>
