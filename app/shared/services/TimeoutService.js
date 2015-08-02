@@ -18,7 +18,7 @@ angular.module("SharedElements").service("TimeoutService", function(){
       //after 7s set timer started to true
       service.timedOut = true;
       notifyObservers();
-    }, 7000);
+    }, 10000);
   };
   service.resetTImer = function(){
     service.timerStarted = false;

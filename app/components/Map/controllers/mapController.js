@@ -1,5 +1,4 @@
 angular.module("WeatherMap").controller("MapController", function($scope, $modal, GeolocationService){
-  
   var map; 
   // open layer maps
   var precipitationLayer = new ol.layer.Tile({
@@ -141,25 +140,8 @@ angular.module("WeatherMap").controller("MapController", function($scope, $modal
   };
   
   GeolocationService.getLocation().then(function(data){
-    /*
     map = new ol.Map({
       target: 'map',
-      //controls: ol.control.defaults().extend([
-      //  new ol.control.FullScreen()
-      //]),
-      view: new ol.View({
-        center: ol.proj.transform([data.lon,data.lat], 'EPSG:4326', 'EPSG:3857'),
-        zoom: 7
-      })
-    });
-    
-    */
-    // experiment time
-    map = new ol.Map({
-      target: 'map',
-      //controls: ol.control.defaults().extend([
-      //  new ol.control.FullScreen()
-      //]),
       loadTilesWhileAnimating : true,
       loadTilesWhileInteracting : true,
       view: new ol.View({
@@ -168,7 +150,6 @@ angular.module("WeatherMap").controller("MapController", function($scope, $modal
       })
     });
     map.setLayerGroup(osmLayerGroup);
-    //map.addLayer(precipitationLayer);
   });
   $scope.moreInfo = function(){
     $modal.open({

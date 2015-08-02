@@ -10,6 +10,6 @@ angular.module('SharedElements').controller("AvailabilityController", function($
   $scope.isLoading = function(){ 
     return AvailabilityService.loading;
   };
- 
+  
   
 });

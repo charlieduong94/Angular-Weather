@@ -28,50 +28,15 @@
     
       <div class="btn-group btn-group-justified">
         <div class="btn-group">
-          <button type="button" class="btn btn-danger " ng-class="{'active' : isActive(1)}" ng-click="setTab(1)">Within the Hour</button>
+          <button type="button" class="btn btn-danger" ng-class="{'active' : isActive(1)}" ng-click="setTab(1)">Hourly</button>
         </div>
         <div class="btn-group">
-          <button type="button" class="btn btn-danger" ng-class="{'active' : isActive(2)}" ng-click="setTab(2)">Hourly</button>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger" ng-class="{'active' : isActive(3)}" ng-click="setTab(3)">7-Day</button>
+          <button type="button" class="btn btn-danger" ng-class="{'active' : isActive(2)}" ng-click="setTab(2)">7-Day</button>
         </div>
       </div>
       
       <div id="forecastContainer">
-      <div class="scrollable fade-down-show" ng-show="isActive(1)">
-        <div class="panel panel-default weather-panel">
-          <div class="panel-body weather-body center">
-            <div class="row center-inline padding-horiz">
-              <h4 class="no-padding">
-                {{minutely.summary}}
-              </h4>
-            </div>
-          </div>
-        </div>
-         <ul class="list-group nav">
-            <div ng-repeat="item in minutely.data" class="panel panel-default weather-panel">
-              <div class="panel-body weather-body" >
-                <div class="row">
-                  <div class="date col-xs-5">
-                    <h4>
-                      {{item.time | DateFilter : "day name"}}
-                      {{item.time | DateFilter : "day"}}
-                      {{item.time | DateFilter : "hour-minute"}}
-                    </h4>
-                  </div>
-                  <div class=" col-xs-6 no-padding">
-                    Chance of Precip. : {{item.precipProbability | PercentageFilter}} <br>
-                  </div>
-                </div>
-              </div>
-              <div class="panel-footer weather-footer">
-                <span ng-bind="item.precipType"></span>
-              </div>
-              </div>
-          </ul> 
-      </div>
-          <div class="scrollable fade-down-show" ng-show="isActive(2)">
+          <div class="scrollable fade-down-show" ng-show="isActive(1)">
             <div class="panel panel-default weather-panel">
               <div class="panel-body weather-body center">
                 <div class="row center-inline padding-horiz">
@@ -91,16 +56,13 @@
                         {{item.time | DateFilter : "day"}} <br>
                         {{item.time | DateFilter : "hour-only"}}
                       </h4>
-                        
-                      
                     </div>
                   <div class="icon col-xs-2">
                    <canvas id="hourlySkycon{{$index}}"  width="60" height="60"></canvas>
                   </div>
                   <div class=" col-xs-6 no-padding">
-                    
                     Temperature : {{item.temperature}}<br>
-                    Humidity : {{item.humidity * 100}}% <br>
+                    Humidity : {{item.humidity | PercentageFilter}} <br>
                     Chance of Precip. : {{item.precipProbability | PercentageFilter}}  
                   </div>
                 </div>
@@ -114,7 +76,7 @@
             </div>
           </ul>
           </div>
-          <div class="scrollable fade-down-show" ng-show="isActive(3)" >
+          <div class="scrollable fade-down-show" ng-show="isActive(2)" >
             <div class="panel panel-default weather-panel">
               <div class="panel-body weather-body center">
                 <div class="row center-inline padding-horiz">
