@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'assets/lib/jquery.min.js',
       'assets/lib/*.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       'app/*',
       'app/components/Map/app.weatherMap.js',
       'app/components/Map/controllers/*.js',

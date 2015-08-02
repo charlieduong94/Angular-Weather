@@ -1,16 +1,16 @@
 
 angular.module('SharedElements').filter("DateFilter" , function(){
   return function(input, type){
-    var a = new Date(input*1000);
+    var a = new Date(input);
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     var weekday = [];
-    weekday[0] = "Sun";
-    weekday[1] = "Mon";
-    weekday[2] = "Tues";
-    weekday[3] = "Wed";
-    weekday[4] = "Thurs";
-    weekday[5] = "Fri";
-    weekday[6] = "Sat";
+    weekday[0] = "Sat";
+    weekday[1] = "Sun";
+    weekday[2] = "Mon";
+    weekday[3] = "Tues";
+    weekday[4] = "Wed";
+    weekday[5] = "Thurs";
+    weekday[6] = "Fri";
     var year = a.getFullYear();
     var month = months[a.getMonth()];
     var date = a.getDate();
