@@ -88,9 +88,6 @@ describe("WeatherFilter", function(){
 		module("SharedElements"); // get module "SharedElements"
 		inject(function($filter){
 			filter = $filter("WeatherFilter"); // set filter as weather filter
-
-
-			
 		});
 	});
 	
