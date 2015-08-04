@@ -107,7 +107,7 @@ describe("WeatherFilter", function(){
 	});
 
 });
-
+// this is part of the test
 describe("DateFilter", function(){
 	var filter;
 	var testEpoch = 1438556132086; // "Sun Aug 02 2015 18:56:18 GMT-0400 (EDT)"
