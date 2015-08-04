@@ -99,11 +99,6 @@ describe("WeatherFilter", function(){
 	it("should do no conversion if 'unit' is set to 'fahrenheit'", function(){
 		var result = filter(62.1, "fahrenheit");
 	    expect(result).to.equal("62.1" + "\u00B0F");					   // assert
-
-
-
-
-	    
 	});
 
 	it("should convert from celsius to fahrenheit if 'unit' is set to 'celsius'", function(){
