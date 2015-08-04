@@ -90,6 +90,7 @@ describe("WeatherFilter", function(){
 			filter = $filter("WeatherFilter"); // set filter as weather filter
 		});
 	});
+	
 	it("should fix to one decimal point", function(){ // inject filter
 		var result = filter(91.111123232, "fahrenheit"); // init filter
 		expect(result).to.equal("91.1" + "\u00B0F");					   // assert
