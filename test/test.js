@@ -148,6 +148,6 @@ describe("DateFilter", function(){
 	});
 	it("should be able to return the time in a standard date format or <month> <day>, <year> <hour>:<min> <period>", function(){
 		var result = filter(testEpoch, "");
-		expect(result).to.equal("Aug 2, 2015 22:55 pm");
+		expect(result).to.equal("Aug 2, 2015 10:55 pm");
 	});
 });
