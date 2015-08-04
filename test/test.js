@@ -110,6 +110,7 @@ describe("WeatherFilter", function(){
 describe("DateFilter", function(){
 	var filter;
 	var testEpoch = 1438556132086; // "Sun Aug 02 2015 18:56:18 GMT-0400 (EDT)"
+
 	beforeEach(function(){
 		module("SharedElements"); // get module "SharedElements"
 		inject(function($filter){
@@ -133,16 +134,16 @@ describe("DateFilter", function(){
 	});
 	it("should be able to retrieve current hour (not military) successfully from unix timestamp", function(){ // inject filter
 		var result = filter(testEpoch, "hour-only"); 
-		expect(result).to.equal("6 pm");					   // assert
-		expect(result).to.not.equal("18 pm");
+		expect(result).to.equal("10 pm");					   // assert
+		expect(result).to.not.equal("22 pm");
 	});
 	it("should be able to retrieve current hour and minute (not military) successfully from unix timestamp", function(){ // inject filter
 		var result = filter(testEpoch, "hour-minute"); 
-		expect(result).to.equal("6:55 pm");					   // assert
-		expect(result).to.not.equal("18:55 pm");
+		expect(result).to.equal("10:55 pm");					   // assert
+		expect(result).to.not.equal("22:55 pm");
 	});
 	it("should be able to return the time in a standard date format or <month> <day>, <year> <hour>:<min> <period>", function(){
 		var result = filter(testEpoch, "");
-		expect(result).to.equal("Aug 2, 2015 6:55 pm");
+		expect(result).to.equal("Aug 2, 2015 22:55 pm");
 	});
 });

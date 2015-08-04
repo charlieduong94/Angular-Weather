@@ -2,7 +2,7 @@
 angular.module('SharedElements').filter("DateFilter" , function(){
   return function(input, type){
     var a = new Date(input);
-    console.log(a);
+
     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     var weekday = [];
     weekday[0] = "Sun";
