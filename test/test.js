@@ -75,9 +75,9 @@ describe("WindDirectionFilter", function(){
 		result = filter(333.333); // init filter
 		expect(result).to.equal("NNW");
 		result = filter(0); // init filter
-		expect(result).to.equal("S");
+		expect(result).to.not.equal("S");
 		result = filter(22); // init filter
-		expect(result).to.equal("ENE");
+		expect(result).to.not.equal("ENE");
 	});
 });
 */
@@ -92,12 +92,12 @@ describe("WeatherFilter", function(){
 	});
 	it("should fix to one decimal point", function(){ // inject filter
 		var result = filter(91.111123232, "fahrenheit"); // init filter
-		expect(result).to.equal("91.1" + "\u00B0C");					   // assert
+		expect(result).to.equal("91.1" + "\u00B0F");					   // assert
 	});
 	
 	it("should do no conversion if 'unit' is set to 'fahrenheit'", function(){
 		var result = filter(62.1, "fahrenheit");
-	    expect(result).to.equal("62.1" + "\u00B0C");					   // assert
+	    expect(result).to.equal("62.1" + "\u00B0F");					   // assert
 	});
 
 	it("should convert from celsius to fahrenheit if 'unit' is set to 'celsius'", function(){
@@ -109,12 +109,12 @@ describe("WeatherFilter", function(){
 
 describe("DateFilter", function(){
 	var filter;
-	var testEpoch = 1438478480874; // Sat Aug 01 2015 21:28:20 GMT-0400 (EDT)
+	var testEpoch = 1438556132086; // "Sun Aug 02 2015 18:56:18 GMT-0400 (EDT)"
 	beforeEach(function(){
 		module("SharedElements"); // get module "SharedElements"
 		inject(function($filter){
 			filter = $filter("DateFilter"); // set filter as weather filter
-		});
+		}); 
 	});
 	it("should be able to retrieve the month successfully from unix timestamp", function(){ // inject filter
 		var result = filter(testEpoch, "month");
@@ -123,26 +123,26 @@ describe("DateFilter", function(){
 	});
 	it("should be able to retrieve the day successfully from unix timestamp", function(){ // inject filter
 		var result = filter(testEpoch, "day"); 
-		expect(result).to.equal(1);					   // assert
-		expect(result).to.not.equal(2);
+		expect(result).to.equal(2);					   // assert
+		expect(result).to.not.equal(3);
 	});
 	it("should be able to retrieve the day of the week successfully from unix timestamp", function(){ // inject filter
 		var result = filter(testEpoch, "day name"); 
-		expect(result).to.equal("Sat");					   // assert
-		expect(result).to.not.equal("Sun");
+		expect(result).to.equal("Sun");					   // assert
+		expect(result).to.not.equal("Sat");
 	});
 	it("should be able to retrieve current hour (not military) successfully from unix timestamp", function(){ // inject filter
 		var result = filter(testEpoch, "hour-only"); 
-		expect(result).to.equal("9 pm");					   // assert
-		expect(result).to.not.equal("21 pm");
+		expect(result).to.equal("6 pm");					   // assert
+		expect(result).to.not.equal("18 pm");
 	});
 	it("should be able to retrieve current hour and minute (not military) successfully from unix timestamp", function(){ // inject filter
 		var result = filter(testEpoch, "hour-minute"); 
-		expect(result).to.equal("9:21 pm");					   // assert
-		expect(result).to.not.equal("21:21 pm");
+		expect(result).to.equal("6:55 pm");					   // assert
+		expect(result).to.not.equal("18:55 pm");
 	});
 	it("should be able to return the time in a standard date format or <month> <day>, <year> <hour>:<min> <period>", function(){
 		var result = filter(testEpoch, "");
-		expect(result).to.equal("Aug 1, 2015 9:21 pm");
+		expect(result).to.equal("Aug 2, 2015 6:55 pm");
 	});
 });

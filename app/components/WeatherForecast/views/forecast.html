@@ -6,7 +6,7 @@
      <!-- left div for temp and details -->
       <div id="mainInfo">
         <h2 id="summ"> <span>Weather</span></h2>
-        <h1 id="mainTemp"> <span ng-bind="currently.temperature"></span>  </h1>
+        <h1 id="mainTemp"> <span ng-bind="(currently.temperature | WeatherFilter : unitToggle.unit)"></span>  </h1>
          <canvas id="mainIcon" width="120" height="120">
            
          </canvas>
@@ -61,7 +61,7 @@
                    <canvas id="hourlySkycon{{$index}}"  width="60" height="60"></canvas>
                   </div>
                   <div class=" col-xs-6 no-padding">
-                    Temperature : {{item.temperature}}<br>
+                    Temperature : {{item.temperature | WeatherFilter : unitToggle.unit}}<br>
                     Humidity : {{item.humidity | PercentageFilter}} <br>
                     Chance of Precip. : {{item.precipProbability | PercentageFilter}}  
                   </div>
@@ -100,8 +100,8 @@
                      <canvas id="dailySkycon{{$index}}"  width="60" height="60"></canvas>
                     </div>
                     <div class=" col-xs-4 no-padding">
-                      Max : {{item.temperatureMax}} <br>
-                      Min : {{item.temperatureMin}}  <br>
+                      Max : {{item.temperatureMax | WeatherFilter : unitToggle.unit}} <br>
+                      Min : {{item.temperatureMin | WeatherFilter : unitToggle.unit}}  <br>
                       Humidity : {{item.humidity | PercentageFilter}}
                     </div>
                     <div class=" col-xs-4 no-padding">

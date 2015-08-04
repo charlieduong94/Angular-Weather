@@ -31,7 +31,6 @@ angular.module('Forecast').controller("ForecastController",
       }
       skycons.play();
       
-      console.log("play");
     }, 100);
     AvailabilityService.loading = false;
     // store data

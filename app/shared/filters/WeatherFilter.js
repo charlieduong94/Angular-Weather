@@ -10,7 +10,7 @@ angular.module('SharedElements').filter("WeatherFilter", function(){
             break;
           case "fahrenheit":
           default:
-            temp = parseFloat(input).toFixed(1) + "\u00B0C";
+            temp = parseFloat(input).toFixed(1) + "\u00B0F";
             break;
         }
         return temp;
