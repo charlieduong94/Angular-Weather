@@ -20,13 +20,6 @@ describe("SharedElements", function(){
 		var result = $filter("DateFilter"); // create filter
 		expect(result).to.not.be.null;			  // assert
 	}));
-
-
-	
-
-
-
-	
 });
 describe("PercentageFilter", function(){
 	beforeEach(function(){
