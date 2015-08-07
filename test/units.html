@@ -12,15 +12,15 @@
         <td colspan="3" title="Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34">Browser: PhantomJS 1.9.8 (Linux 0.0.0)</td>
       </tr>
       <tr class="overview">
-        <td colspan="3">Timestamp: Wed Aug 05 2015 21:41:48 GMT-0400 (EDT)</td>
+        <td colspan="3">Timestamp: Thu Aug 06 2015 21:10:54 GMT-0400 (EDT)</td>
       </tr>
       <tr>
         <td colspan="3">
-          14 tests / 
+          19 tests / 
           0 errors / 
           3 failures / 
           0 skipped / 
-          runtime: 0.038s
+          runtime: 0.031s
         </td>
       </tr>
       <tr class="header">
@@ -29,7 +29,7 @@
         <td>Suite / Results</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.011s</td>
+        <td>Passed in 0.012s</td>
         <td>should contain have a PercentageFilter</td>
         <td>SharedElements</td>
       </tr>
@@ -44,12 +44,12 @@
         <td>SharedElements</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.003s</td>
+        <td>Passed in 0.002s</td>
         <td>should contain have a DateFilter</td>
         <td>SharedElements</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.004s</td>
+        <td>Passed in 0.003s</td>
         <td>should convert decimal to a percentage</td>
         <td>PercentageFilter</td>
       </tr>
@@ -64,12 +64,12 @@
         <td>WeatherFilter</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.001s</td>
+        <td>Passed in 0s</td>
         <td>should convert from celsius to fahrenheit if 'unit' is set to 'celsius'</td>
         <td>WeatherFilter</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.01s</td>
+        <td>Passed in 0.001s</td>
         <td>should be able to retrieve the month successfully from unix timestamp</td>
         <td>DateFilter</td>
       </tr>
@@ -79,7 +79,7 @@
         <td>DateFilter</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0s</td>
+        <td>Passed in 0.001s</td>
         <td>should be able to retrieve the day of the week successfully from unix timestamp</td>
         <td>DateFilter</td>
       </tr>
@@ -112,6 +112,36 @@
     at base/test/filters_test.js?83922b109693c9b96fe387509a637d3249a700cb:148
 
         </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>should be initialized to 1</td>
+        <td>TabController &raquo; $scope.currentTab</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should be set when setTab is called</td>
+        <td>TabController &raquo; $scope.currentTab</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td></td>
+        <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>should change to 'Switch to Celsius' upon $scope.toggleUnit when unit = 'celsius</td>
+        <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should change to 'Switch to Fahrenheit' upon $scope.toggleUnit when unit = 'fahrenheit'</td>
+        <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
+      </tr>
+      <tr class="system-out">
+        <td colspan="3"><strong>System output:</strong><br />PhantomJS 1.9.8 (Linux 0.0.0) LOG: 'celsius'
+<br />PhantomJS 1.9.8 (Linux 0.0.0) LOG: 'fahrenheit'
+</td>
       </tr>
     </table>
     <hr/>
