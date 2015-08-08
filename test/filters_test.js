@@ -34,7 +34,7 @@ describe("PercentageFilter", function(){
 
 
 });
-/*
+
 describe("WindDirectionFilter", function(){
 	var filter;
 	beforeEach(function(){
@@ -44,11 +44,11 @@ describe("WindDirectionFilter", function(){
 		});
 	});
 	it("should convert degrees into the proper Cardinal Direction", function(){ 
-		var result = filter(0); // init filter
+		var result = filter(1.0); // init filter
 		expect(result).to.equal("N");					   // assert
 		result = filter(22); 
 		expect(result).to.equal("NNE");
-		result = filter(52); // init filter
+		result = filter(59); // init filter
 		expect(result).to.equal("ENE");
 		result = filter(89); // init filter
 		expect(result).to.equal("E");
@@ -80,7 +80,7 @@ describe("WindDirectionFilter", function(){
 		expect(result).to.not.equal("ENE");
 	});
 });
-*/
+
 
 describe("WeatherFilter", function(){
 	var filter;

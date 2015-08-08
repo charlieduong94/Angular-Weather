@@ -15,7 +15,7 @@
       </div>
       <h4> Chance of Precipitation : <span ng-bind="(currently.precipProbability | PercentageFilter)"></span></h4> 
       <h4> Humidity : <span ng-bind="(currently.humidity | PercentageFilter)"></span></h4>
-      <h4> Wind : <span ng-bind="currently.windSpeed"></span> m/s at <span ng-bind="currently.windBearing"></span>&deg; </h4>
+      <h4> Wind : <span ng-bind="currently.windSpeed"></span> m/s at <span ng-bind="(currently.windBearing | WindDirectionFilter)"></span>&deg;</h4>
       <a href="http://forecast.io">Powered By Forecast</a>
     </div>
 

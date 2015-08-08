@@ -12,15 +12,15 @@
         <td colspan="3" title="Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34">Browser: PhantomJS 1.9.8 (Linux 0.0.0)</td>
       </tr>
       <tr class="overview">
-        <td colspan="3">Timestamp: Thu Aug 06 2015 21:10:54 GMT-0400 (EDT)</td>
+        <td colspan="3">Timestamp: Fri Aug 07 2015 20:26:26 GMT-0400 (EDT)</td>
       </tr>
       <tr>
         <td colspan="3">
-          19 tests / 
+          23 tests / 
           0 errors / 
           3 failures / 
           0 skipped / 
-          runtime: 0.031s
+          runtime: 0.069s
         </td>
       </tr>
       <tr class="header">
@@ -39,19 +39,24 @@
         <td>SharedElements</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.003s</td>
+        <td>Passed in 0.006s</td>
         <td>should contain have a WindDirectionFilter</td>
         <td>SharedElements</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.002s</td>
+        <td>Passed in 0.005s</td>
         <td>should contain have a DateFilter</td>
         <td>SharedElements</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.003s</td>
+        <td>Passed in 0.005s</td>
         <td>should convert decimal to a percentage</td>
         <td>PercentageFilter</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should convert degrees into the proper Cardinal Direction</td>
+        <td>WindDirectionFilter</td>
       </tr>
       <tr class="pass">
         <td>Passed in 0s</td>
@@ -79,7 +84,7 @@
         <td>DateFilter</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.001s</td>
+        <td>Passed in 0s</td>
         <td>should be able to retrieve the day of the week successfully from unix timestamp</td>
         <td>DateFilter</td>
       </tr>
@@ -89,7 +94,7 @@
         <td>
           DateFilter
           <br />AssertionError: expected '6 pm' to equal '10 pm'
-    at base/test/filters_test.js?83922b109693c9b96fe387509a637d3249a700cb:138
+    at base/test/filters_test.js?d64e1f591a77d3c6dd33e64b454c2e335724abb2:138
 
         </td>
       </tr>
@@ -99,7 +104,7 @@
         <td>
           DateFilter
           <br />AssertionError: expected '6:55 pm' to equal '10:55 pm'
-    at base/test/filters_test.js?83922b109693c9b96fe387509a637d3249a700cb:143
+    at base/test/filters_test.js?d64e1f591a77d3c6dd33e64b454c2e335724abb2:143
 
         </td>
       </tr>
@@ -109,27 +114,27 @@
         <td>
           DateFilter
           <br />AssertionError: expected 'Aug 2, 2015 6:55 pm' to equal 'Aug 2, 2015 10:55 pm'
-    at base/test/filters_test.js?83922b109693c9b96fe387509a637d3249a700cb:148
+    at base/test/filters_test.js?d64e1f591a77d3c6dd33e64b454c2e335724abb2:148
 
         </td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.001s</td>
+        <td>Passed in 0s</td>
         <td>should be initialized to 1</td>
         <td>TabController &raquo; $scope.currentTab</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0s</td>
+        <td>Passed in 0.001s</td>
         <td>should be set when setTab is called</td>
         <td>TabController &raquo; $scope.currentTab</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0s</td>
+        <td>Passed in 0.007s</td>
         <td></td>
         <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.001s</td>
+        <td>Passed in 0s</td>
         <td>should change to 'Switch to Celsius' upon $scope.toggleUnit when unit = 'celsius</td>
         <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
       </tr>
@@ -138,10 +143,20 @@
         <td>should change to 'Switch to Fahrenheit' upon $scope.toggleUnit when unit = 'fahrenheit'</td>
         <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
       </tr>
-      <tr class="system-out">
-        <td colspan="3"><strong>System output:</strong><br />PhantomJS 1.9.8 (Linux 0.0.0) LOG: 'celsius'
-<br />PhantomJS 1.9.8 (Linux 0.0.0) LOG: 'fahrenheit'
-</td>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>should equal located if located = true</td>
+        <td>AvailabilityController &raquo; $scope.isLocated()</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should equal located if connected = true</td>
+        <td>AvailabilityController &raquo; $scope.isConnected()</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should equal located if loading = true</td>
+        <td>AvailabilityController &raquo; $scope.isLoading()</td>
       </tr>
     </table>
     <hr/>

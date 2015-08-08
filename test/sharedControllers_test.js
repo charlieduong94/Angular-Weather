@@ -65,3 +65,43 @@ describe("UnitToggleController", function(){
 		});
 	});
 });
+// this even needed?
+describe("AvailabilityController", function(){
+	var $controller;
+	beforeEach(function(){
+		module("SharedElements");
+		inject(function(_$controller_){
+			$controller = _$controller_;
+		});
+	});
+	var mockService = function(located, connected, loading){
+		this.observers = [];
+		this.located = located;    // checks if located or not
+		this.connected = connected;
+		this.loading = loading;
+	};
+	describe("$scope.isLocated()", function(){
+		it("should equal located if located = true", function(){
+			var $scope = {};
+			var service = new mockService(true, true, true);
+			var controller = $controller("AvailabilityController", { $scope : $scope, AvailabilityService : service});
+			expect($scope.isLocated()).to.equal(true);
+		});
+	});
+	describe("$scope.isConnected()", function(){
+		it("should equal located if connected = true", function(){
+			var $scope = {};
+			var service = new mockService(true, true, true);
+			var controller = $controller("AvailabilityController", { $scope : $scope, AvailabilityService : service});
+			expect($scope.isConnected()).to.equal(true);
+		});
+	});
+	describe("$scope.isLoading()", function(){
+		it("should equal located if loading = true", function(){
+			var $scope = {};
+			var service = new mockService(true, true, true);
+			var controller = $controller("AvailabilityController", { $scope : $scope, AvailabilityService : service});
+			expect($scope.isLoading()).to.equal(true);
+		});
+	});
+});
