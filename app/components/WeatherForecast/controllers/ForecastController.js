@@ -1,6 +1,5 @@
 angular.module('Forecast').controller("ForecastController", 
-            function($scope, WeatherFactory, GeolocationService, UnitToggleService,
-                      IconMappingService, AvailabilityService, TimeoutService){
+            function($scope, WeatherFactory, GeolocationService, UnitToggleService, AvailabilityService, TimeoutService){
   var dataRetrievedFromStorage = false;
   var processResult = function(data){  // uses then function allow the code to run after get weather completes
     $scope.currently = data.data.currently;
@@ -58,7 +57,6 @@ angular.module('Forecast').controller("ForecastController",
   console.log(document.domain);
   $scope.unitToggle = UnitToggleService;
   $scope.toggleButtonText = "Switch to Celsius";
-  $scope.getIcon = IconMappingService;
   chrome.storage.local.get("savedData",function(data){ // this is async
     var time = Date.now() - 10*60000; // current date - 10 mins
     console.log(data);

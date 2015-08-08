@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Unit Test Results</title>
+    <style type="text/css">html,body{font-family:Arial,sans-serif;margin:0;padding:0;}body{padding:10px 40px;}h1{margin-bottom:0;}h2{margin-top:0;color:#999;}table{width:100%;margin-top:20px;margin-bottom:20px;table-layout:fixed;}tr.header{background:#ddd;font-weight:bold;border-bottom:none;}td{padding:7px;border-top:none;border-left:1px black solid;border-bottom:1px black solid;border-right:none;word-break:break-all;word-wrap:break-word;}tr.pass td{color:#003b07;background:#86e191;}tr.skip td{color:#7d3a00;background:#ffd24a;}tr.fail td{color:#5e0e00;background:#ff9c8a;}tr:first-child td{border-top:1px black solid;}td:last-child{border-right:1px black solid;}tr.overview{font-weight:bold;color:#777;}tr.overview td{padding-bottom:0px;border-bottom:none;}tr.system-out td{color:#777;}hr{height:2px;margin:30px 0;background:#000;border:none;}</style>
+  </head>
+  <body>
+    <h1>Unit Test Results</h1>
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tr class="overview">
+        <td colspan="3" title="Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34">Browser: PhantomJS 1.9.8 (Linux 0.0.0)</td>
+      </tr>
+      <tr class="overview">
+        <td colspan="3">Timestamp: Fri Aug 07 2015 20:26:26 GMT-0400 (EDT)</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          23 tests / 
+          0 errors / 
+          3 failures / 
+          0 skipped / 
+          runtime: 0.069s
+        </td>
+      </tr>
+      <tr class="header">
+        <td>Status</td>
+        <td>Spec</td>
+        <td>Suite / Results</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.012s</td>
+        <td>should contain have a PercentageFilter</td>
+        <td>SharedElements</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.004s</td>
+        <td>should contain have a WeatherFilter</td>
+        <td>SharedElements</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.006s</td>
+        <td>should contain have a WindDirectionFilter</td>
+        <td>SharedElements</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.005s</td>
+        <td>should contain have a DateFilter</td>
+        <td>SharedElements</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.005s</td>
+        <td>should convert decimal to a percentage</td>
+        <td>PercentageFilter</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should convert degrees into the proper Cardinal Direction</td>
+        <td>WindDirectionFilter</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should fix to one decimal point</td>
+        <td>WeatherFilter</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should do no conversion if 'unit' is set to 'fahrenheit'</td>
+        <td>WeatherFilter</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should convert from celsius to fahrenheit if 'unit' is set to 'celsius'</td>
+        <td>WeatherFilter</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>should be able to retrieve the month successfully from unix timestamp</td>
+        <td>DateFilter</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should be able to retrieve the day successfully from unix timestamp</td>
+        <td>DateFilter</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should be able to retrieve the day of the week successfully from unix timestamp</td>
+        <td>DateFilter</td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>should be able to retrieve current hour (not military) successfully from unix timestamp</td>
+        <td>
+          DateFilter
+          <br />AssertionError: expected '6 pm' to equal '10 pm'
+    at base/test/filters_test.js?d64e1f591a77d3c6dd33e64b454c2e335724abb2:138
+
+        </td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>should be able to retrieve current hour and minute (not military) successfully from unix timestamp</td>
+        <td>
+          DateFilter
+          <br />AssertionError: expected '6:55 pm' to equal '10:55 pm'
+    at base/test/filters_test.js?d64e1f591a77d3c6dd33e64b454c2e335724abb2:143
+
+        </td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>should be able to return the time in a standard date format or &lt;month&gt; &lt;day&gt;, &lt;year&gt; &lt;hour&gt;:&lt;min&gt; &lt;period&gt;</td>
+        <td>
+          DateFilter
+          <br />AssertionError: expected 'Aug 2, 2015 6:55 pm' to equal 'Aug 2, 2015 10:55 pm'
+    at base/test/filters_test.js?d64e1f591a77d3c6dd33e64b454c2e335724abb2:148
+
+        </td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should be initialized to 1</td>
+        <td>TabController &raquo; $scope.currentTab</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>should be set when setTab is called</td>
+        <td>TabController &raquo; $scope.currentTab</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.007s</td>
+        <td></td>
+        <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should change to 'Switch to Celsius' upon $scope.toggleUnit when unit = 'celsius</td>
+        <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should change to 'Switch to Fahrenheit' upon $scope.toggleUnit when unit = 'fahrenheit'</td>
+        <td>UnitToggleController &raquo; $scope.toggleButtonText &raquo; should equal 'Switch to Celsius' when initialized</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0.001s</td>
+        <td>should equal located if located = true</td>
+        <td>AvailabilityController &raquo; $scope.isLocated()</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should equal located if connected = true</td>
+        <td>AvailabilityController &raquo; $scope.isConnected()</td>
+      </tr>
+      <tr class="pass">
+        <td>Passed in 0s</td>
+        <td>should equal located if loading = true</td>
+        <td>AvailabilityController &raquo; $scope.isLoading()</td>
+      </tr>
+    </table>
+    <hr/>
+  </body>
+</html>
