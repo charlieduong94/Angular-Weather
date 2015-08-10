@@ -6,7 +6,6 @@ angular.module("SharedElements").service("AvailabilityService", function($modal,
   service.loading = true;
   
   TimeoutService.registerCallback(function(){
-    console.log("availability callback");
     if(service.loading){ // if still loading
       $modal.open({
         animation: true,
