@@ -3,9 +3,7 @@ angular.module('SharedElements').controller("ModalController", function($scope, 
   $scope.$watch(function(){
     return (!AvailabilityService.connected || !AvailabilityService.located) && !AvailabilityService.loading;},
     function(newVal, oldVal){
-      console.log(newVal);
       if(newVal === true){
-        
         $modal.open({
           animation: true,
           templateUrl: 'myModalContent.html',
