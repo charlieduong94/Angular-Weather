@@ -67,12 +67,13 @@ angular.module("WeatherMap").controller("MapController", function($scope, $modal
   snowLayer.setVisible(false);
   tempLayer.setVisible(false);
   var baseLayerGroups = {sat : satLayerGroup, osm : osmLayerGroup, hyb : hybLayerGroup};
-  $scope.mapCheckModel = {
-    osm : 'osm',
-    sat : 'sat',
-    hyb : 'hyb'
-  };
   $scope.mapRadioModel = 'osm';
+  $scope.mapRadioModelIsActive = function(map){
+    if($scope.mapRadioModel === map){
+      return true;
+    }
+    return false;
+  };
   $scope.layerModel = {
     precipitation : false,
     clouds : false,
@@ -81,6 +82,7 @@ angular.module("WeatherMap").controller("MapController", function($scope, $modal
     temp : false
   };
   $scope.switchMap = function(mapType){
+    $scope.mapRadioModel=mapType;
      switch(mapType){
        case "osm":
           map.setLayerGroup(osmLayerGroup);
