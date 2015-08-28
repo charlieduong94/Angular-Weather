@@ -1,15 +1,12 @@
 <div ng-controller="MapController">
-  <!--
-  <ui-gmap-google-map center="map.center" zoom="map.zoom"></ui-gmap-google-map>
-  -->
   <div class="row">
     <div id="map" class="map col-xs-9"></div>
     <div id="layers-panel" class="col-xs-3">
       <h4>Map Style</h4>
-      <div class="btn-group-vertical " data-toggle="buttons-checkbox">
-          <label class="btn btn-primary" ng-model="mapRadioModel" ng-click="switchMap('osm')" btn-radio="mapCheckModel.osm">Open Street Maps</label>
-          <label class="btn btn-primary" ng-model="mapRadioModel" ng-click="switchMap('sat')" btn-radio="mapCheckModel.sat">Satelite</label>
-          <label class="btn btn-primary" ng-model="mapRadioModel" ng-click="switchMap('hyb')" btn-radio="mapCheckModel.hyb">Hybrid</label>
+      <div class="btn-group-vertical">
+          <label id="osmRadio" class="btn btn-danger" ng-class="{'active' : mapRadioModelIsActive('osm')}" ng-click="switchMap('osm')">Open Street Maps</label>
+          <label id="satRadio" class="btn btn-danger" ng-class="{'active' : mapRadioModelIsActive('sat')}" ng-click="switchMap('sat')">Satelite</label>
+          <label id="hybRadio" class="btn btn-danger" ng-class="{'active' : mapRadioModelIsActive('hyb')}" ng-click="switchMap('hyb')">Hybrid</label>
       </div>
       <h4>Layers</h4>
       <div class="btn-group-vertical ">
@@ -29,6 +26,7 @@
           <div class="modal-body">
               <h4>Map layers take a moment to load, so please be patient. <br>Map functionality was made possible with the use of <a href="http://openLayers.org">OpenLayers 3</a>. 
               <br>Layers are loaded from<a href="http://openweathermap.org"> OpenWeatherMap</a>.
+              <br>Want a bigger map? Click <a href="http://openweathermap.org/map">here</a>.
               <br>
               <br>
               Any questions? Send an email to <a href="mailto:stormymochadev@gmail.com">Stormy Mocha</a>.

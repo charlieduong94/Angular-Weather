@@ -1,26 +1,27 @@
 <div class="row">
   <div ng-controller="ForecastController">
+  
+  <!--
+   <marquee behavior="scroll" direction="left">
+    {{minutely.summary}} 
+   </marquee>
+   -->
    <div id="leftDiv" class="col-xs-5">
     
     <!-- ng-bind will prevent the expression from showing for a split second before data loads-->
      <!-- left div for temp and details -->
-      <div id="mainInfo">
-        <h2 id="summ"> <span>Weather</span></h2>
+      <div id="mainInfo" rel="tooltip" data-toggle="tooltip" title="{{minutely.summary}}">
+        <h3 id="header">Right Now</h3>
         <h1 id="mainTemp"> <span ng-bind="(currently.temperature | WeatherFilter : unitToggle.unit)"></span>  </h1>
          <canvas id="mainIcon" width="120" height="120">
-           
          </canvas>
-         
-        <h2> <span ng-bind="currently.summary"></span> </h2>
+        <h2 id="summ" ><span ng-bind="currently.summary"></span></h2>
       </div>
       <h4> Chance of Precipitation : <span ng-bind="(currently.precipProbability | PercentageFilter)"></span></h4> 
       <h4> Humidity : <span ng-bind="(currently.humidity | PercentageFilter)"></span></h4>
-      <h4> Wind : <span ng-bind="currently.windSpeed"></span> m/s at <span ng-bind="(currently.windBearing | WindDirectionFilter)"></span>&deg;</h4>
+      <h4> Wind : <span ng-bind="currently.windSpeed"></span> m/s <span ng-bind="(currently.windBearing | WindDirectionFilter)"></span>&deg;</h4>
       <a href="http://forecast.io">Powered By Forecast</a>
     </div>
-
-    
-    
     <!-- Right div for forcast-->
   <div id="rightDiv" class="col-xs-7">
     <div  ng-controller="TabController as tab">
