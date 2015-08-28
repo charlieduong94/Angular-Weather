@@ -14,8 +14,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'assets/lib/jquery.min.js',
-      'assets/lib/*.js',
+      'lib/jquery.min.js',
+      'lib/*.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'app/*',
       'app/components/Map/app.weatherMap.js',
@@ -33,7 +33,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-      'assets/lib/angular-animate.min.js'
+      'lib/angular-animate.min.js'
     ],
 
 
