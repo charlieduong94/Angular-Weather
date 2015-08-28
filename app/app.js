@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip({'placement': 'bottom'});
+    $("[data-toggle='tooltip']").tooltip({'placement': 'bottom'});
     $('body').on('click', 'a', function(){
         chrome.tabs.create({url: $(this).attr('href')});
         return false;

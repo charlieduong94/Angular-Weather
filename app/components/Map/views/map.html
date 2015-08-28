@@ -3,10 +3,10 @@
     <div id="map" class="map col-xs-9"></div>
     <div id="layers-panel" class="col-xs-3">
       <h4>Map Style</h4>
-      <div class="btn-group-vertical " data-toggle="buttons-checkbox">
-          <label id="osmRadio" class="btn btn-primary" ng-class="{'active' : mapRadioModelIsActive('osm')}" ng-click="switchMap('osm')">Open Street Maps</label>
-          <label id="satRadio" class="btn btn-primary" ng-class="{'active' : mapRadioModelIsActive('sat')}" ng-click="switchMap('sat')">Satelite</label>
-          <label id="hybRadio" class="btn btn-primary" ng-class="{'active' : mapRadioModelIsActive('hyb')}" ng-click="switchMap('hyb')">Hybrid</label>
+      <div class="btn-group-vertical">
+          <label id="osmRadio" class="btn btn-danger" ng-class="{'active' : mapRadioModelIsActive('osm')}" ng-click="switchMap('osm')">Open Street Maps</label>
+          <label id="satRadio" class="btn btn-danger" ng-class="{'active' : mapRadioModelIsActive('sat')}" ng-click="switchMap('sat')">Satelite</label>
+          <label id="hybRadio" class="btn btn-danger" ng-class="{'active' : mapRadioModelIsActive('hyb')}" ng-click="switchMap('hyb')">Hybrid</label>
       </div>
       <h4>Layers</h4>
       <div class="btn-group-vertical ">
