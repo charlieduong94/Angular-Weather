@@ -1,3 +1,3 @@
-Angularjs Chrome Extension!! (name subject to change)
+Angular Weather
 
-Uses OpenWeatherMap Api to pull weather and place it into a nice little application that everyone can use.
+Simple weather extension that anyone can use.
